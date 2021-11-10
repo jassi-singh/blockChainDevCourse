@@ -10,6 +10,7 @@ contract SimpleStorage {
     }
     
     People[] public people;
+    uint256 favNum = 0;
     mapping(string=>uint256) public nameToNuber;
     
     function addPeople(uint256 _num,string memory _name) public
@@ -21,6 +22,14 @@ contract SimpleStorage {
     function getPeople(uint256 index) public view returns(string memory)
     {
         return people[index].name;
+    }
+
+    function getFavNum() public view returns(uint256) {
+        return favNum;
+    }
+
+    function setFavNum(uint256 _num) public {
+        favNum = _num;
     }
     
     
