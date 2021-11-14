@@ -2,7 +2,7 @@ from brownie import FundMe, network, config
 from scripts.helpful_scripts import deploy_mocks, get_account, LOCAL_BLOCKCHAIN_ENVIORNMENTS
 
 
-def deploy_fund_me():
+def  deploy_fund_me():
     account = get_account()
     if network.show_active() not in LOCAL_BLOCKCHAIN_ENVIORNMENTS:
         price_feed_address = config["networks"][network.show_active()]['eth_usd_price_feed']
@@ -15,6 +15,7 @@ def deploy_fund_me():
         publish_source=config['networks'][network.show_active()].get("verify")
     )
     print(f"Contract deployed to {fund_me.address}")
+    return fund_me;
 
 
 def main():

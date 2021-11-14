@@ -51,4 +51,11 @@ contract FundMe {
         }
         funders = new address[](0);
     }
+
+    function getEnteranceFee() public view returns (uint256) {
+        uint256 minimumUSD = 50 * 10 ** 18;
+        uint256 price = getPriceFeed();
+        uint256 precison = 1 * 10**18;
+        return (minimumUSD * precison)/price;
+    }
 }
